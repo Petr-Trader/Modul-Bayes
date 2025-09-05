@@ -1,0 +1,143 @@
+===== REPO SNAPSHOT (05.09.2025 12:11:03,65) =====
+
+--- REMOTES --- 
+origin	https://github.com/Petr-Trader/Modul-Bayes.git (fetch)
+origin	https://github.com/Petr-Trader/Modul-Bayes.git (push)
+
+--- BRANCHES (local) --- 
+* main dc5977e [origin/main] OptimalizÃ¡tor pro MT5
+
+--- LAST 20 COMMITS (on current branch) --- 
+dc5977e OptimalizÃ¡tor pro MT5
+
+--- STATUS (short) --- 
+## main...origin/main
+ M creat.cmd
+?? repo_snapshot.txt
+
+--- TREE (top-level) --- 
+bayes
+catalog
+config
+creat.cmd
+logs
+Modul-Architektura.md
+modules
+profiles
+pyproject.toml
+README.md
+reports
+repo_snapshot.txt
+results
+sets
+tests
+
+--- TREE (recursive) --- 
+Folder PATH listing
+Volume serial number is F6E3-FAF6
+C:.
+³   creat.cmd
+³   Modul-Architektura.md
+³   pyproject.toml
+³   README.md
+³   repo_snapshot.txt
+³   
+ÃÄÄÄbayes
+³       space.json
+³       
+ÃÄÄÄcatalog
+³       indicators.yaml
+³       
+ÃÄÄÄconfig
+³   ³   env.yaml
+³   ³   magic_registry.yaml
+³   ³   universe.yaml
+³   ³   
+³   ÀÄÄÄbroker
+³           darwinex.yaml
+³           
+ÃÄÄÄlogs
+ÃÄÄÄmodules
+³   ÃÄÄÄdeployer
+³   ÃÄÄÄenv_check
+³   ÃÄÄÄindicator_catalog
+³   ÃÄÄÄleaderboard_maker
+³   ÃÄÄÄobjective_scorer
+³   ÃÄÄÄreport_parser
+³   ÃÄÄÄrunner_mt5
+³   ÃÄÄÄset_builder
+³   ÃÄÄÄspace_generator
+³   ÀÄÄÄuniverse_builder
+ÃÄÄÄprofiles
+³       EA_FollowTrend.yaml
+³       EA_FX_CarryMomentum.yaml
+³       
+ÃÄÄÄreports
+³   ÀÄÄÄraw
+ÃÄÄÄresults
+³       leaderboard.html
+³       parsed.parquet
+³       scored.parquet
+³       
+ÃÄÄÄsets
+³   ÃÄÄÄbaseline
+³   ÃÄÄÄdeploy
+³   ÀÄÄÄgenerated
+ÀÄÄÄtests
+
+--- FILE LIST (recursive, files only) --- 
+C:\CLON_Git\Modul-Bayes\creat.cmd
+C:\CLON_Git\Modul-Bayes\Modul-Architektura.md
+C:\CLON_Git\Modul-Bayes\pyproject.toml
+C:\CLON_Git\Modul-Bayes\README.md
+C:\CLON_Git\Modul-Bayes\repo_snapshot.txt
+C:\CLON_Git\Modul-Bayes\.git\COMMIT_EDITMSG
+C:\CLON_Git\Modul-Bayes\.git\config
+C:\CLON_Git\Modul-Bayes\.git\description
+C:\CLON_Git\Modul-Bayes\.git\FETCH_HEAD
+C:\CLON_Git\Modul-Bayes\.git\HEAD
+C:\CLON_Git\Modul-Bayes\.git\index
+C:\CLON_Git\Modul-Bayes\.git\hooks\applypatch-msg.sample
+C:\CLON_Git\Modul-Bayes\.git\hooks\commit-msg.sample
+C:\CLON_Git\Modul-Bayes\.git\hooks\fsmonitor-watchman.sample
+C:\CLON_Git\Modul-Bayes\.git\hooks\post-update.sample
+C:\CLON_Git\Modul-Bayes\.git\hooks\pre-applypatch.sample
+C:\CLON_Git\Modul-Bayes\.git\hooks\pre-commit.sample
+C:\CLON_Git\Modul-Bayes\.git\hooks\pre-merge-commit.sample
+C:\CLON_Git\Modul-Bayes\.git\hooks\pre-push.sample
+C:\CLON_Git\Modul-Bayes\.git\hooks\pre-rebase.sample
+C:\CLON_Git\Modul-Bayes\.git\hooks\pre-receive.sample
+C:\CLON_Git\Modul-Bayes\.git\hooks\prepare-commit-msg.sample
+C:\CLON_Git\Modul-Bayes\.git\hooks\push-to-checkout.sample
+C:\CLON_Git\Modul-Bayes\.git\hooks\sendemail-validate.sample
+C:\CLON_Git\Modul-Bayes\.git\hooks\update.sample
+C:\CLON_Git\Modul-Bayes\.git\info\exclude
+C:\CLON_Git\Modul-Bayes\.git\logs\HEAD
+C:\CLON_Git\Modul-Bayes\.git\logs\refs\heads\main
+C:\CLON_Git\Modul-Bayes\.git\logs\refs\remotes\origin\HEAD
+C:\CLON_Git\Modul-Bayes\.git\logs\refs\remotes\origin\main
+C:\CLON_Git\Modul-Bayes\.git\objects\41\b339974875580e9839e47ffd4608c29476d64b
+C:\CLON_Git\Modul-Bayes\.git\objects\44\185fd4c8ac4e883b78e307702aa20e0d2d06df
+C:\CLON_Git\Modul-Bayes\.git\objects\b6\c812a9ab7d1e673867301795b6912672cffb7e
+C:\CLON_Git\Modul-Bayes\.git\objects\b8\308386fd6c8c74236af4386a9220ceab828d48
+C:\CLON_Git\Modul-Bayes\.git\objects\ba\3417f34f3e721ee7bd107aad2b6258f2a949ca
+C:\CLON_Git\Modul-Bayes\.git\objects\bb\20a6c353264603b5f12c3f795e24257f619ec9
+C:\CLON_Git\Modul-Bayes\.git\objects\d5\2546f8b1e8db1923cd6fb6e55cb6bee3cc9fd4
+C:\CLON_Git\Modul-Bayes\.git\objects\dc\5977e36940a228698a8e56b843a22b512ba4b0
+C:\CLON_Git\Modul-Bayes\.git\objects\dd\f4d796bacd746d23b912e0701362311b610960
+C:\CLON_Git\Modul-Bayes\.git\objects\e6\9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+C:\CLON_Git\Modul-Bayes\.git\objects\e9\609f873740343d9f6fdb638506bdde91c91fa5
+C:\CLON_Git\Modul-Bayes\.git\refs\heads\main
+C:\CLON_Git\Modul-Bayes\.git\refs\remotes\origin\HEAD
+C:\CLON_Git\Modul-Bayes\.git\refs\remotes\origin\main
+C:\CLON_Git\Modul-Bayes\bayes\space.json
+C:\CLON_Git\Modul-Bayes\catalog\indicators.yaml
+C:\CLON_Git\Modul-Bayes\config\env.yaml
+C:\CLON_Git\Modul-Bayes\config\magic_registry.yaml
+C:\CLON_Git\Modul-Bayes\config\universe.yaml
+C:\CLON_Git\Modul-Bayes\config\broker\darwinex.yaml
+C:\CLON_Git\Modul-Bayes\profiles\EA_FollowTrend.yaml
+C:\CLON_Git\Modul-Bayes\profiles\EA_FX_CarryMomentum.yaml
+C:\CLON_Git\Modul-Bayes\results\leaderboard.html
+C:\CLON_Git\Modul-Bayes\results\parsed.parquet
+C:\CLON_Git\Modul-Bayes\results\scored.parquet

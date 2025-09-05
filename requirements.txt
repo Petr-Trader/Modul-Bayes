@@ -1,0 +1,7 @@
+pyyaml
+pydantic
+pandas
+pytest
+ruff
+mypy
+yamllint
