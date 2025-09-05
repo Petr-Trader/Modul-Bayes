@@ -1,0 +1,13 @@
+__pycache__/
+.venv/
+.vscode/
+.idea/
+*.pyc
+*.pyo
+*.pyd
+*.log
+results/
+reports/raw/
+sets/generated/
+logs/
+.DS_Store
