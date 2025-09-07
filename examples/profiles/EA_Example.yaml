@@ -1,0 +1,21 @@
+ea:
+  name: "EA_Example"
+  version: "0.1"
+  inputs:
+    InpRsiPeriod:
+      from_indicator: "RSI"
+      field: "Period"
+    InpAdxPeriod:
+      from_indicator: "ADX"
+      field: "Period"
+    InpLotSize:
+      type: float
+      default: 0.10
+      range: {min: 0.01, max: 1.00, step: 0.01}
+  constraints:
+    min_trades: 50
+    max_dd_pct: 35
+  objective:
+    primary: "MAR"
+    secondary: "PF"
+universe_ref: "../config/universe.yaml"
