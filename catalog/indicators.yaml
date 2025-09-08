@@ -1,0 +1,47 @@
+# catalog/indicators.yaml
+version: "1.00"
+applied_price_enum:
+  - PRICE_CLOSE
+  - PRICE_OPEN
+  - PRICE_HIGH
+  - PRICE_LOW
+  - PRICE_MEDIAN
+  - PRICE_TYPICAL
+  - PRICE_WEIGHTED
+
+timeframes:
+  - H1
+  - H4
+  - D1
+
+indicators:
+  RSI:
+    alias: [rsi]
+    inputs:
+      period: {type: int, min: 2, max: 100, step: 1, by_tf: {H1: {min: 5, max: 50}, H4: {min: 5, max: 50}, D1: {min: 5, max: 50}}}
+      applied_price: {type: enum, values: "@applied_price_enum"}
+  EMA:
+    alias: [ema, moving_average_ema]
+    inputs:
+      period: {type: int, min: 2, max: 600, step: 1, by_tf: {H1: {min: 5, max: 200}, H4: {min: 5, max: 300}, D1: {min: 5, max: 400}}}
+      applied_price: {type: enum, values: "@applied_price_enum"}
+  ATR:
+    alias: [atr]
+    inputs:
+      period: {type: int, min: 2, max: 200, step: 1, by_tf: {H1: {min: 5, max: 50}, H4: {min: 5, max: 50}, D1: {min: 5, max: 50}}}
+  Stochastic:
+    alias: [stoch, stochastic_oscillator]
+    inputs:
+      k_period: {type: int, min: 1, max: 100, step: 1}
+      d_period: {type: int, min: 1, max: 100, step: 1}
+      slowing:  {type: int, min: 1, max: 10,  step: 1}
+      ma_method: {type: enum, values: [SMA, EMA, SMMA, LWMA]}
+      applied_price: {type: enum, values: "@applied_price_enum"}
+  ADX:
+    alias: [dmi, adx]
+    inputs:
+      period: {type: int, min: 2, max: 100, step: 1}
+    outputs:
+      plus_di: {type: float}
+      minus_di: {type: float}
+      adx:     {type: float}
