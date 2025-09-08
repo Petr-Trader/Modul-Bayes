@@ -1,0 +1,10 @@
+[tool.mypy]
+python_version = "3.13"
+pretty = true
+warn_return_any = true
+warn_unused_configs = true
+
+# Per-modulová výjimka: yaml (PyYAML)
+[[tool.mypy.overrides]]
+module = ["yaml.*"]
+ignore_missing_imports = true

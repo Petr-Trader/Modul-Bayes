@@ -12,3 +12,9 @@ sets/generated/
 logs/
 .DS_Store
 DAILY_BRIEFING.md
+# Záložní/temporary soubory editorů
+*.bak
+*.tmp
+*.swp
+*.swo
+*~
