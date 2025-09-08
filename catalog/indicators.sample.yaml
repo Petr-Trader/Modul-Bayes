@@ -1,0 +1,2 @@
+# examples/catalog/indicators.sample.yaml
+use: "../catalog/indicators.yaml"
