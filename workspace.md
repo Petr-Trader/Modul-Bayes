@@ -1,3 +1,5 @@
+# Provozní řád (workflow)
+
 # Workspace – Modul‑Bayes (VS Code)
 
 Tento dokument standardizuje pracovní prostředí pro **Modul‑Bayes** (Windows).
