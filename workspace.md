@@ -1,70 +1,88 @@
-# Provozní řád (workflow)
+# Workspace – Modul‑Bayes (VS Code)
 
-Tento dokument definuje každodenní rytmus práce v projektu Modul-Bayes.
+Tento dokument standardizuje pracovní prostředí pro **Modul‑Bayes** (Windows).
 
----
+## Doporučené rozšíření VS Code
+- Python (Microsoft)
+- Pylance
+- GitHub Pull Requests and Issues
+- Git Graph
+- Markdown All in One
+- EditorConfig for VS Code
+- YAML
+- PowerShell (pokud používáš PS)
+- Batch Runner / Command Runner (pro `.bat`)
 
-## Denní rytmus
-
-### Ráno – 2 min
-1. Aktualizuj repozitář:
-   ```bat
-   git pull --rebase
-   ```
-2. Nastav prostředí (volitelné cesty):
-   ```bat
-   call scripts\env_vars_<work|home>.cmd
-   ```
-3. Vygeneruj briefing:
-   ```bat
-   call scripts\make_briefing.bat
-   ```
-   → otevři `DAILY_BRIEFING.md` a zkopíruj blok **„Briefing pro asistenta (dnes)“** do chatu.
-4. Otevři `TODO.md` a vyber nejbližší neodškrtnutý úkol.
-
-### Během práce
-- Commity dělej malými kroky s prefixy:
-  - `feat|fix|docs|chore|test|ci:`
-- Větve: `feature/...` → PR do `dev` (default šablona, pro malé změny `small.md`).
-- Po splnění DoD odškrtni úkol v `TODO.md`.
-
-### Konec dne – 2 min
-1. Spusť smoke testy:
-   ```bat
-   pytest -q
-   ```
-   nebo
-   ```bat
-   call scripts\smoke_test.bat
-   ```
-2. Ověř, že `git status` je čistý.
-3. V `TODO.md` odškrtni hotové + přidej sekci **Zítra:** s 1–2 body.
-4. Do chatu pošli krátké EOD: *co hotovo / co blokuje / co zítra*.
-
----
-
-## Šablona briefingu
-Každé ráno mi pošli:
-
-```md
-# Briefing pro asistenta (dnes)
-Branch: <větev>
-Cíl na dnes: <1–2 kroky>
-Stroj: <home/work>
-Nové změny od včera: <max 3>
-Blokery/omezení: <pokud jsou>
-Co ověřit po dokončení: <DoD/artefakty>
+## Nastavení (vlož do `.vscode/settings.json`)
+```json
+{
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "python.defaultInterpreterPath": "C:\\Program Files\\Python313\\python.exe",
+  "python.testing.pytestEnabled": true,
+  "python.analysis.typeCheckingMode": "basic",
+  "editor.rulers": [100],
+  "editor.formatOnSave": true,
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on"
+  }
+}
 ```
 
----
+## Tasks (volitelné, `.vscode/tasks.json`)
+```json
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "CI: pytest",
+      "type": "shell",
+      "command": ".venv\\Scripts\\python -m pytest",
+      "problemMatcher": []
+    },
+    {
+      "label": "CI: ruff",
+      "type": "shell",
+      "command": ".venv\\Scripts\\python -m ruff check .",
+      "problemMatcher": []
+    }
+  ]
+}
+```
 
-## ALIGN
-Pokud napíšeš jen `ALIGN`, shrnu poslední stav (TODO, PR, artefakty) a navrhnu nejkratší cestu k dalšímu validnímu kroku.
+## Doporučené návyky
+- Před prací spustit `scripts/home_start.bat` nebo `scripts/work_start.bat`.
+- Pracovat v samostatných větvích (`feat/*`, `docs/*`, `chore/*`).
+- PR vždy do `dev`; po schválení **ALIGN** (`dev → main`).
 
----
+## Git a GH CLI (základ)
+```bat
+git fetch --all --prune
+git switch dev
+git pull --rebase
 
-## Kde co najdeš
-- `workspace.md` – denní rituál + briefing + příkazy
-- `scripts\make_briefing.bat` – generuje `DAILY_BRIEFING.md`
-- `TODO.md` – jediný zdroj pravdy o práci
-- `.github/pull_request_template.md` + `.github/PULL_REQUEST_TEMPLATE/small.md` – konzistentní PR popisy
+:: nová větev
+git switch -c docs/m1-todo-workspace
+
+:: commit
+git add -A
+git commit -m "docs: přidat TODO a workspace (M1)"
+
+:: push + PR
+git push -u origin docs/m1-todo-workspace
+gh pr create --base dev --head docs/m1-todo-workspace --title "docs: TODO + workspace (M1)" --body "Přidání TODO.md a workspace.md; dokončení Milníku 1."
+```
+
+## Branch protection (doporučení)
+- `main`: vyžadovat PR + úspěšné CI; zákaz přímého push.
+- `dev`: také PR + CI (udrží kvalitu), případně povolit squash merge.
+- Povolit běh GitHub Actions na PR z forků (pokud bude relevantní).
+
+## Poznámka k prostředím
+- Domácí PC Python: `C:\Program Files\Python313\python.exe`.
+- Preferované CSV kódování: `utf-8-sig` (kompatibilní s Excelem).
+- Excel exporty v UTF‑8.
