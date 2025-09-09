@@ -11,10 +11,10 @@
 - [x] Příprava dokumentů **TODO.md** a **workspace.md**.
 
 ## 2) Kroky k dokončení Milníku 1 (teď)
-- [ ] **Přidat** `TODO.md` a `workspace.md` do větve `dev` přes PR.
-- [ ] Ověřit, že CI proběhne „zeleně“ na PR.
+- [x] **Přidat** `TODO.md` a `workspace.md` do větve `dev` přes PR.
+- [X] Ověřit, že CI proběhne „zeleně“ na PR.
 - [ ] **Zamknout** větve `main` a `dev` (branch protection) – povinné PR + úspěšný CI.
-- [ ] Sloučit PR → `dev`.
+- [X] Sloučit PR → `dev`.
 - [ ] (Volitelné) **ALIGN**: otevřít PR `dev → main` a sjednotit stav.
 
 ## 3) Kontroly po dokončení
@@ -25,6 +25,15 @@
   - Do not allow bypassing the above settings (ON) – vyjma GitHub Actions, pokud je potřeba.
 - [ ] PR šablona **small** je výchozí pro drobné změny.
 - [ ] `scripts/*_start.bat` a `*_end.bat` běží lokálně bez chyb.
+
+## Dnešní práce – 2025-09-09
+- [x] Přidán `workspace.md` s hlavičkou `# Provozní řád (workflow)`.
+- [x] Přidán `TODO_Milnik_1.md`.
+- [x] PR #13 (docs) – CI zelené (hlavička opravena).
+- [x] PR #13 sloučen do `dev`.  _(zaškrtni po merge, pokud ještě není)_
+- [x] Přidán `.gitattributes`.
+- [x] Uzavřeny zbytečné PR/větve (#17, #18).
+- [ ] ALIGN `dev → main` (#14).  _(zaškrtni po merge)_
 
 ## 4) Rychlé příkazy (lokálně)
 ```bat
