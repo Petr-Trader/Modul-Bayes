@@ -1,33 +1,53 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 
-rem --- vetev (bez FOR) ---
-git rev-parse --abbrev-ref HEAD 1>"%TEMP%\branch.txt" 2>nul
-if errorlevel 1 echo [ERR] Nelze zjistit git vetev. & exit /b 1
-set /p GIT_BRANCH=<"%TEMP%\branch.txt"
-del "%TEMP%\branch.txt" 2>nul
+:: --- detect branch ---
+for /f "delims=" %%B in ('git rev-parse --abbrev-ref HEAD 2^>nul') do set "GIT_BRANCH=%%B"
+if not defined GIT_BRANCH (
+  echo [ERR] Cannot detect git branch.
+  exit /b 1
+)
 
-rem --- datum (bez PowerShellu) ---
+:: --- date ---
 set "TODAY=%date%"
 
-rem --- python verze (bez FOR) ---
-python -V 1>"%TEMP%\pyver.txt" 2>&1
-set /p PY_VER=<"%TEMP%\pyver.txt"
+:: --- python version ---
+for /f "delims=" %%P in ('python -V 2^>^&1') do set "PY_VER=%%P"
 if not defined PY_VER set "PY_VER=Python N/A"
-del "%TEMP%\pyver.txt" 2>nul
 
-rem --- tvoje cesty ---
+:: --- context paths ---
 set "REPO=%cd%"
 set "MT5_TERMS=""C:\MT5_Portable\MT5_A\terminal64.exe"";""C:\MT5_Portable\MT5_B\terminal64.exe"";""C:\MT5_Portable\MT5_C\terminal64.exe"""
 set "DATA_ROOT=C:\DATA"
 
-rem --- zapis souboru (escapnute < a >) ---
+:: --- machine alias ---
+set "STROJ=%COMPUTERNAME%"
+if /I "%STROJ%"=="WORKPC" set "STROJ=work"
+if /I "%STROJ%"=="HOMEPC" set "STROJ=home"
+
 >DAILY_BRIEFING.md  echo # Briefing pro asistenta %TODAY%
 >>DAILY_BRIEFING.md echo Branch: %GIT_BRANCH%
 >>DAILY_BRIEFING.md echo Cil na dnes: ^<dopln 1-2^>
->>DAILY_BRIEFING.md echo Stroj: ^<doma/prace^>
+>>DAILY_BRIEFING.md echo Stroj: %STROJ%
 >>DAILY_BRIEFING.md echo Nove zmeny od vcera:
->>DAILY_BRIEFING.md echo - spust: git log --since="yesterday" --oneline
+
+:: --- commits since yesterday ---
+set "GITLOG_TMP=%TEMP%\gitlog_%RANDOM%.txt"
+git log --since="yesterday" --pretty=format:"%%h %%s (%%cr) by %%an" > "%GITLOG_TMP%" 2>nul
+
+for %%A in ("%GITLOG_TMP%") do set "GITLOG_SIZE=%%~zA"
+if not defined GITLOG_SIZE set "GITLOG_SIZE=0"
+
+if "%GITLOG_SIZE%"=="0" (
+  >>DAILY_BRIEFING.md echo - (zadne nove commity od vcerejska)
+) else (
+  for /f "usebackq delims=" %%L in ("%GITLOG_TMP%") do (
+    >>DAILY_BRIEFING.md echo - %%L
+  )
+)
+
+del "%GITLOG_TMP%" 2>nul
+
 >>DAILY_BRIEFING.md echo Blokery/omezeni: ^<pokud jsou^>
 >>DAILY_BRIEFING.md echo Co overit po dokonceni: DoD/CI/artefakty
 >>DAILY_BRIEFING.md echo ----------------------------------------------
@@ -37,8 +57,4 @@ rem --- zapis souboru (escapnute < a >) ---
 >>DAILY_BRIEFING.md echo - MT5 terminals: %MT5_TERMS%
 >>DAILY_BRIEFING.md echo - Data root: %DATA_ROOT%
 
-if not exist DAILY_BRIEFING.md echo [ERR] Zapis selhal.
-if not exist DAILY_BRIEFING.md exit /b 1
-
-echo [OK] Vytvoreno: DAILY_BRIEFING.md
 endlocal
