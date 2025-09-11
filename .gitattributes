@@ -1,0 +1,26 @@
+*         text=auto
+
+# Preferované LF pro kód a dokumentaci
+*.md      text eol=lf
+*.py      text eol=lf
+*.yml     text eol=lf
+*.yaml    text eol=lf
+*.json    text eol=lf
+*.toml    text eol=lf
+*.sh      text eol=lf
+*.ipynb   text eol=lf
+
+# Windows skripty potřebují CRLF
+*.bat     text eol=crlf
+*.cmd     text eol=crlf
+*.ps1     text eol=crlf
+
+# (volitelně) ukázkové CSV pro Excel: CRLF
+*.csv     text eol=crlf
+
+# Binárky
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.pdf     binary

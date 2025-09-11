@@ -6,7 +6,9 @@ ECHO is off.
 ---
 ECHO is off.
 ## Milník 0 – Repo/CI sanity
-- [ ] **Kontrola Gitu a CI**
+
+- [X] **Kontrola Gitu a CI**
+
   - Vstup: čistý working tree, GitHub Actions zapnuté.
   - Příkazy:
     - `git status -sb`

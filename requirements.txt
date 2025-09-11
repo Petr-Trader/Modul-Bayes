@@ -1,7 +1,4 @@
-pyyaml
-pydantic
-pandas
-pytest
-ruff
-mypy
-yamllint
+pytest>=8.0
+ruff>=0.6
+mypy>=1.10
+pyyaml>=6.0.1
