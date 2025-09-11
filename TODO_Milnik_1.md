@@ -13,18 +13,18 @@
 ## 2) Kroky k dokončení Milníku 1 (teď)
 - [x] **Přidat** `TODO.md` a `workspace.md` do větve `dev` přes PR.
 - [X] Ověřit, že CI proběhne „zeleně“ na PR.
-- [ ] **Zamknout** větve `main` a `dev` (branch protection) – povinné PR + úspěšný CI.
+- [x] **Zamknout** větve `main` a `dev` (branch protection) – povinné PR + úspěšný CI.
 - [X] Sloučit PR → `dev`.
-- [ ] (Volitelné) **ALIGN**: otevřít PR `dev → main` a sjednotit stav.
+- [x] (Volitelné) **ALIGN**: otevřít PR `dev → main` a sjednotit stav.
 
 ## 3) Kontroly po dokončení
-- [ ] V GitHub **Settings → Branches**: pravidla pro `main` a `dev`:
+- [X] V GitHub **Settings → Branches**: pravidla pro `main` a `dev`:
   - Require a pull request before merging (ON).
   - Require status checks to pass before merging (ON) – zvol CI workflow.
   - Require conversation resolution before merging (ON).
   - Do not allow bypassing the above settings (ON) – vyjma GitHub Actions, pokud je potřeba.
-- [ ] PR šablona **small** je výchozí pro drobné změny.
-- [ ] `scripts/*_start.bat` a `*_end.bat` běží lokálně bez chyb.
+- [x] PR šablona **small** je výchozí pro drobné změny.
+- [X] `scripts/*_start.bat` a `*_end.bat` běží lokálně bez chyb.
 
 ## Dnešní práce – 2025-09-09
 - [x] Přidán `workspace.md` s hlavičkou `# Provozní řád (workflow)`.
@@ -33,7 +33,7 @@
 - [x] PR #13 sloučen do `dev`.  _(zaškrtni po merge, pokud ještě není)_
 - [x] Přidán `.gitattributes`.
 - [x] Uzavřeny zbytečné PR/větve (#17, #18).
-- [ ] ALIGN `dev → main` (#14).  _(zaškrtni po merge)_
+- [x] ALIGN `dev → main` (#14).  _(zaškrtni po merge)_
 
 ## 4) Rychlé příkazy (lokálně)
 ```bat
