@@ -1,20 +1,29 @@
-__pycache__/
+# venv / python
 .venv/
+env/
+*.pyc
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# editors/OS
 .vscode/
 .idea/
-*.pyc
-*.pyo
-*.pyd
-*.log
-results/
-reports/raw/
-sets/generated/
-logs/
 .DS_Store
+
+# builds
+dist/
+build/
+*.egg-info/
+
+# notebooks
+.ipynb_checkpoints/
+
+# project artifacts
+results/
+reports/
+workspace/
+
 DAILY_BRIEFING.md
-# Záložní/temporary soubory editorů
-*.bak
-*.tmp
-*.swp
-*.swo
-*~
