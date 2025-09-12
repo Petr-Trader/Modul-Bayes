@@ -34,7 +34,7 @@ indicators:
     inputs:
       k_period: {type: int, min: 1, max: 100, step: 1}
       d_period: {type: int, min: 1, max: 100, step: 1}
-      slowing:  {type: int, min: 1, max: 10,  step: 1}
+      slowing: {type: int, min: 1, max: 10, step: 1}
       ma_method: {type: enum, values: [SMA, EMA, SMMA, LWMA]}
       applied_price: {type: enum, values: "@applied_price_enum"}
   ADX:
@@ -44,4 +44,4 @@ indicators:
     outputs:
       plus_di: {type: float}
       minus_di: {type: float}
-      adx:     {type: float}
+      adx: {type: float}

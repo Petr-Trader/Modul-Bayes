@@ -1,0 +1,7 @@
+extends: default
+rules:
+  line-length: { max: 140 }     # delší řádky OK
+  document-start: disable       # nepovinné '---' na začátku
+  truthy: disable
+  comments:
+    min-spaces-from-content: 1
